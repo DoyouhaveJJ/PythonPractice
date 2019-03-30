@@ -87,12 +87,12 @@ def train():
 	with tf.Session() as sess:
 		sess.run(init)
 		print("训练中…………")
-		for i in range(1000000):
+		for i in range(10000):
 			train_x,train_y = get_train_data()
 			sess.run(train_op,feed_dict={x:train_x,y:train_y})
 			
-			if(i%10000==0):
-				times = int(i/10000)
+			if(i%100==0):
+				times = int(i/100)
 				test_x_ndarray = np.arange(0,2*np.pi,0.01)
 				test_y_ndarray = np.zeros([len(test_x_ndarray)])
 				ind = 0
